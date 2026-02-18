@@ -11,11 +11,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.cursoudemy.components.exercise.Ejercicio2
-import com.example.cursoudemy.components.layout.ConstraintBarrier
-import com.example.cursoudemy.components.layout.ConstraintChain
-import com.example.cursoudemy.components.layout.ConstraintExampleGuide
-import com.example.cursoudemy.components.layout.MyBasicConstraintLayout
+import com.example.cursoudemy.components.layout.MyTextField
+import com.example.cursoudemy.components.layout.MyTextFieldParent
+import com.example.cursoudemy.components.layout.MyTexts
 import com.example.cursoudemy.ui.theme.CursoUdemyTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,8 +23,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CursoUdemyTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    ConstraintChain(Modifier.padding(innerPadding))
-
+                    MyTextFieldParent(Modifier.padding(innerPadding))
                 }
             }
         }
