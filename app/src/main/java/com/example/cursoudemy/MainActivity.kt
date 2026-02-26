@@ -17,6 +17,9 @@ import com.example.cursoudemy.components.layout.MyNetworkImage
 import com.example.cursoudemy.components.layout.MyTextField
 import com.example.cursoudemy.components.layout.MyTextFieldParent
 import com.example.cursoudemy.components.layout.MyTexts
+import com.example.cursoudemy.components.layout.Progress
+import com.example.cursoudemy.components.layout.ProgressAdvance
+import com.example.cursoudemy.components.layout.ProgressAnimation
 import com.example.cursoudemy.ui.theme.CursoUdemyTheme
 
 class MainActivity : ComponentActivity() {
@@ -26,9 +29,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             CursoUdemyTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    MyNetworkImage(Modifier.padding(innerPadding))
+                    //MyNetworkImage(Modifier.padding(innerPadding))
+                    //ProgressAdvance(Modifier.padding(innerPadding))
+                    ProgressAnimation(Modifier.padding(innerPadding))
                 }
-            }
+            }git
         }
     }
 }
