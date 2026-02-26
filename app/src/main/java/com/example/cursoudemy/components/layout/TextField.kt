@@ -2,9 +2,13 @@ package com.example.cursoudemy.components.layout
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.input.InputTransformation.Companion.keyboardOptions
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -27,6 +31,8 @@ fun MyTextFieldParent(modifier: Modifier) {
         MySecondTextField(value = value) { value = it }
         MyAdvanceTextField(value = value) { value = it }
         MyPasswordTextField(value = value) { value = it }
+        Spacer(Modifier.height(20.dp))
+        MyOutlinedTextField(value = value) { value = it }
     }
 }
 
@@ -71,4 +77,10 @@ fun MyPasswordTextField(value: String, onValueChange: (String) -> Unit) {
                 modifier= Modifier.padding(horizontal = 4.dp).clickable {passwordHidden = !passwordHidden})
         }
     )
+}
+
+@Composable
+fun MyOutlinedTextField(value: String, onValueChange: (String) -> Unit) {
+    //OutlinedTextField(value = value,onValueChange = { onValueChange(it) })
+    BasicTextField(value = value,onValueChange = { onValueChange(it) })
 }

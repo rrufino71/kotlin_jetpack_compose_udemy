@@ -11,6 +11,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.cursoudemy.components.layout.MyButtons
+import com.example.cursoudemy.components.layout.MyImage
+import com.example.cursoudemy.components.layout.MyNetworkImage
 import com.example.cursoudemy.components.layout.MyTextField
 import com.example.cursoudemy.components.layout.MyTextFieldParent
 import com.example.cursoudemy.components.layout.MyTexts
@@ -23,7 +26,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CursoUdemyTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    MyTextFieldParent(Modifier.padding(innerPadding))
+                    MyNetworkImage(Modifier.padding(innerPadding))
                 }
             }
         }
