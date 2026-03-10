@@ -12,8 +12,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.cursoudemy.components.layout.MyButtons
+import com.example.cursoudemy.components.layout.MyCheckBox
 import com.example.cursoudemy.components.layout.MyImage
 import com.example.cursoudemy.components.layout.MyNetworkImage
+import com.example.cursoudemy.components.layout.MySwitch
 import com.example.cursoudemy.components.layout.MyTextField
 import com.example.cursoudemy.components.layout.MyTextFieldParent
 import com.example.cursoudemy.components.layout.MyTexts
@@ -29,11 +31,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             CursoUdemyTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    //MyNetworkImage(Modifier.padding(innerPadding))
-                    //ProgressAdvance(Modifier.padding(innerPadding))
-                    ProgressAnimation(Modifier.padding(innerPadding))
+                    MyCheckBox(Modifier.padding(innerPadding))
                 }
-            }git
+            }
         }
     }
 }
