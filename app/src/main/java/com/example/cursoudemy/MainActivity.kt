@@ -11,17 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.cursoudemy.components.layout.MyButtons
-import com.example.cursoudemy.components.layout.MyCheckBox
-import com.example.cursoudemy.components.layout.MyImage
-import com.example.cursoudemy.components.layout.MyNetworkImage
-import com.example.cursoudemy.components.layout.MySwitch
-import com.example.cursoudemy.components.layout.MyTextField
-import com.example.cursoudemy.components.layout.MyTextFieldParent
-import com.example.cursoudemy.components.layout.MyTexts
-import com.example.cursoudemy.components.layout.Progress
-import com.example.cursoudemy.components.layout.ProgressAdvance
-import com.example.cursoudemy.components.layout.ProgressAnimation
+import com.example.cursoudemy.components.layout.ParentCheckBoxes
 import com.example.cursoudemy.ui.theme.CursoUdemyTheme
 
 class MainActivity : ComponentActivity() {
@@ -31,7 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CursoUdemyTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    MyCheckBox(Modifier.padding(innerPadding))
+                    ParentCheckBoxes(Modifier.padding(innerPadding))
                 }
             }
         }

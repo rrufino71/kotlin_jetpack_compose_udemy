@@ -4,6 +4,7 @@ import android.widget.CheckBox
 import android.widget.Switch
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -102,3 +103,60 @@ fun MyCheckBox(modifier: Modifier = Modifier) {
 
 }
 
+@Composable
+fun ParentCheckBoxes(modifier: Modifier = Modifier) {
+
+    var state: List<CheckBoxState> by remember {
+        mutableStateOf(
+            listOf(
+                CheckBoxState("terms", "Aceptar Terminos y condiciones"),
+                CheckBoxState("newsletter", "Recibir newsletter",true),
+                CheckBoxState("updates", "Recibir actualizaciones"),
+
+            )
+        )
+    }
+
+    Column(modifier = modifier.fillMaxSize()) {
+        state.forEach { myState ->
+            CheckBoxWithText(checkBoxState = myState) {
+                state = state.map {
+                    if (it.id == myState.id) {
+                        myState.copy(checked = !myState.checked)
+                    }else {
+                        it
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+
+@Composable
+fun CheckBoxWithText(
+        modifier: Modifier = Modifier,
+        checkBoxState: CheckBoxState,
+        onCheckedChange:(CheckBoxState) -> Unit
+) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.clickable { onCheckedChange(checkBoxState) })
+    {
+        Checkbox(
+            checked = checkBoxState.checked,
+            onCheckedChange = { onCheckedChange(checkBoxState) },
+            enabled = true,
+            colors = CheckboxDefaults.colors(
+                checkedColor = Color.Red,
+                uncheckedColor = Color.Green,
+                checkmarkColor = Color.Yellow,
+                disabledCheckedColor = Color.Black,
+                disabledUncheckedColor = Color.Blue,
+            )
+        )
+        Spacer(Modifier.width(12.dp))
+        Text(checkBoxState.label)
+    }
+}
