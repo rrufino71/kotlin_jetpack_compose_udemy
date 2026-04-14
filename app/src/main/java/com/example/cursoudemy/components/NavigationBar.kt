@@ -1,17 +1,25 @@
 package com.example.cursoudemy.components
 
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import com.example.cursoudemy.R
 import com.example.cursoudemy.components.model.NavItem
 
@@ -24,24 +32,40 @@ fun MyNavigationBar(modifier: Modifier = Modifier) {
         NavItem("Favorite",Icons.Default.Favorite),
         NavItem("Profile",Icons.Default.Person)
         )
+    var selectedIndex by remember { mutableIntStateOf(0) }
+    NavigationBar(
+        containerColor = Color.Red,
+        tonalElevation = 15.dp
 
-    NavigationBar {
-        NavigationBarItem(
-            selected = true,
-            onClick = {},
-            icon = {Icon(painter = painterResource(R.drawable.ic_revert), contentDescription = null)},
-            label = {Text("Home")},
-            alwaysShowLabel = true,
-            colors =  NavigationBarItemDefaults.colors(
-                selectedIconColor = Color.Red,
-                selectedTextColor = Color.Red,
-                indicatorColor = Color.White,
-                unselectedIconColor = Color.White,
-                unselectedTextColor = Color.Gray,
-                disabledTextColor = Color.Gray)
-        )
+    ) {
+        itemList.forEachIndexed { index, item ->
+            AristiDevsItem(navItem = item, isSelected = index==selectedIndex){
+                //funcion lambda la toma aristidevs como ultimo parametro como unit
+                selectedIndex = index
+            }
+        }
 
 
 
     }
+}
+
+@Composable
+//RowScope permite usar el contexto del composable
+fun RowScope.AristiDevsItem(navItem: NavItem,isSelected: Boolean,onItemClick: ()->Unit ) {
+    NavigationBarItem(
+        selected = isSelected,
+        onClick = {onItemClick()},
+        //icon = {Icon(painter = painterResource(R.drawable.ic_revert), contentDescription = null)},
+        icon = {Icon(imageVector = navItem.icon, contentDescription = null)},
+        label = {Text(navItem.name)},
+        alwaysShowLabel = false,
+        colors =  NavigationBarItemDefaults.colors(
+            selectedIconColor = Color.Red,
+            selectedTextColor = Color.White,
+            indicatorColor = Color.White,
+            unselectedIconColor = Color.White,
+            unselectedTextColor = Color.Black,
+            disabledTextColor = Color.Gray)
+    )
 }
