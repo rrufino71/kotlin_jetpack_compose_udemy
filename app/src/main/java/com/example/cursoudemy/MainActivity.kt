@@ -29,6 +29,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.cursoudemy.components.MyBadge
+import com.example.cursoudemy.components.MyBadgeBox
 import com.example.cursoudemy.components.MyCard
 import com.example.cursoudemy.components.MyElevatedCard
 import com.example.cursoudemy.components.MyModalDrawer
@@ -64,7 +66,7 @@ class MainActivity : ComponentActivity() {
                                 contentAlignment = Alignment.Center
                         )
                         {
-                            MyOutlinedCard()
+                            MyBadgeBox()
 /*
                             Text("Esta es mi screen", modifier = Modifier.clickable{
                                 scope.launch {
