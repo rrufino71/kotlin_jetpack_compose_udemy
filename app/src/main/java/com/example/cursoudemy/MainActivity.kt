@@ -7,8 +7,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.FabPosition
@@ -25,20 +28,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.example.cursoudemy.components.MyCard
+import com.example.cursoudemy.components.MyElevatedCard
 import com.example.cursoudemy.components.MyModalDrawer
 import com.example.cursoudemy.components.MyNavigationBar
+import com.example.cursoudemy.components.MyOutlinedCard
 import com.example.cursoudemy.components.MyTopAppBar
-import com.example.cursoudemy.components.layout.MyDropDownItem
-import com.example.cursoudemy.components.layout.MyDropDownMenu
-import com.example.cursoudemy.components.layout.MyExposedDropDownMenu
 import com.example.cursoudemy.components.layout.MyFAB
-import com.example.cursoudemy.components.layout.MyRadioButton
-import com.example.cursoudemy.components.layout.MyRadioButtonList
-import com.example.cursoudemy.components.layout.MyRangeSlider
-import com.example.cursoudemy.components.layout.MySlider
-import com.example.cursoudemy.components.layout.MySliderAdvance
-import com.example.cursoudemy.components.layout.ParentCheckBoxes
-import com.example.cursoudemy.components.layout.TriStateCheckBox
 import com.example.cursoudemy.ui.theme.CursoUdemyTheme
 import kotlinx.coroutines.launch
 
@@ -51,7 +48,6 @@ class MainActivity : ComponentActivity() {
                 val drawerState: DrawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
                 val snackbarHotState = remember { SnackbarHostState() }
                 val scope = rememberCoroutineScope()
-
                 MyModalDrawer(drawerState) {
                     Scaffold(modifier = Modifier.fillMaxSize(),
                         topBar = { MyTopAppBar {scope.launch {drawerState.open() } } },
@@ -59,13 +55,17 @@ class MainActivity : ComponentActivity() {
                         floatingActionButton = { MyFAB() },
                         floatingActionButtonPosition = FabPosition.Center,
                         bottomBar = { MyNavigationBar() }
+
                     ) { innerPadding ->
                         Box(
                             modifier=Modifier.fillMaxSize()
-                                .padding(innerPadding)
-                                .background(Color.Cyan),
-                            contentAlignment = Alignment.Center
-                        ){
+                                .background(Color.Cyan)
+                                .padding(innerPadding),
+                                contentAlignment = Alignment.Center
+                        )
+                        {
+                            MyOutlinedCard()
+/*
                             Text("Esta es mi screen", modifier = Modifier.clickable{
                                 scope.launch {
                                     val result = snackbarHotState.showSnackbar(
@@ -80,6 +80,7 @@ class MainActivity : ComponentActivity() {
 
                                 }
                             })
+*/
                         }
                     }
                 }
