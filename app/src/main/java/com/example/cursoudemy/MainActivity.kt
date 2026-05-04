@@ -33,6 +33,8 @@ import com.example.cursoudemy.components.MyModalDrawer
 import com.example.cursoudemy.components.MyNavigationBar
 import com.example.cursoudemy.components.MyTimePicker
 import com.example.cursoudemy.components.MyTopAppBar
+import com.example.cursoudemy.components.advance.InteractionSourceExample
+import com.example.cursoudemy.components.advance.MyLaunchedEffect
 import com.example.cursoudemy.components.layout.MyFAB
 import com.example.cursoudemy.components.model.PokemonCombat
 import com.example.cursoudemy.ui.theme.CursoUdemyTheme
@@ -97,6 +99,7 @@ class MainActivity : ComponentActivity() {
                                 }
                             })
 */
+                            MyLaunchedEffect{ }
                         }
                     }
                 }
