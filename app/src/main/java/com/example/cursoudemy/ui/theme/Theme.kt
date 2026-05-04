@@ -60,7 +60,7 @@ fun CursoUdemyTheme(
         shapes = Shapes(
             small = RoundedCornerShape(1.dp),
             medium = RoundedCornerShape(20.dp),
-            extraLarge = RoundedCornerShape(50)
+            extraLarge = RoundedCornerShape(18)
         )
     )
 }
