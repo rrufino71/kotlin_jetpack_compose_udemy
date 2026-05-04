@@ -27,6 +27,7 @@ import com.example.cursoudemy.components.MyDialogs
 import com.example.cursoudemy.components.MyDateDialogs
 import com.example.cursoudemy.components.MyModalDrawer
 import com.example.cursoudemy.components.MyNavigationBar
+import com.example.cursoudemy.components.MyTimePicker
 import com.example.cursoudemy.components.MyTopAppBar
 import com.example.cursoudemy.components.layout.MyFAB
 import com.example.cursoudemy.ui.theme.CursoUdemyTheme
@@ -42,7 +43,7 @@ class MainActivity : ComponentActivity() {
                 val snackbarHotState = remember { SnackbarHostState() }
                 val scope = rememberCoroutineScope()
 
-                MyDateDialogs()
+                MyTimePicker()
 
                 MyModalDrawer(drawerState) {
                     Scaffold(modifier = Modifier.fillMaxSize(),
