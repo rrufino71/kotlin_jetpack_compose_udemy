@@ -17,12 +17,16 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.cursoudemy.components.MyCustomDialog
 import com.example.cursoudemy.components.MyDialogs
 import com.example.cursoudemy.components.MyDateDialogs
 import com.example.cursoudemy.components.MyModalDrawer
@@ -30,6 +34,7 @@ import com.example.cursoudemy.components.MyNavigationBar
 import com.example.cursoudemy.components.MyTimePicker
 import com.example.cursoudemy.components.MyTopAppBar
 import com.example.cursoudemy.components.layout.MyFAB
+import com.example.cursoudemy.components.model.PokemonCombat
 import com.example.cursoudemy.ui.theme.CursoUdemyTheme
 import kotlinx.coroutines.launch
 
@@ -42,14 +47,28 @@ class MainActivity : ComponentActivity() {
                 val drawerState: DrawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
                 val snackbarHotState = remember { SnackbarHostState() }
                 val scope = rememberCoroutineScope()
+                var showDialog by remember { mutableStateOf(false) }
+                val pokemonCombat = PokemonCombat(pokemonA = "Pikachu", pokemonB = "Gengar")
 
-                MyTimePicker()
+                //mete las funciones lambda dentro de los parentesis porque
+                //son mas de una por eso no las pones con llave fuera de los
+                //parentesis
+                MyCustomDialog(
+                    showDialog = showDialog,
+                    pokemonCombat = pokemonCombat,
+                    onStartCombat = {
+                        //iniciar el combate
+                        showDialog=false
+                    },
+                    onDismissDialog = {showDialog=false}
+                )
+
 
                 MyModalDrawer(drawerState) {
                     Scaffold(modifier = Modifier.fillMaxSize(),
                         topBar = { MyTopAppBar {scope.launch {drawerState.open() } } },
                         snackbarHost = { SnackbarHost(hostState = snackbarHotState) },
-                        floatingActionButton = { MyFAB() },
+                        floatingActionButton = { MyFAB{showDialog = true} },
                         floatingActionButtonPosition = FabPosition.Center,
                         bottomBar = { MyNavigationBar() }
 
