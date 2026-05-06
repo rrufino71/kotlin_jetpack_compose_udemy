@@ -26,6 +26,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.cursoudemy.components.MyAdvanceList
+import com.example.cursoudemy.components.MyBasicList
 import com.example.cursoudemy.components.MyCustomDialog
 import com.example.cursoudemy.components.MyDialogs
 import com.example.cursoudemy.components.MyDateDialogs
@@ -103,7 +105,9 @@ class MainActivity : ComponentActivity() {
 */
                         //InteractionSourceExample()
                         //MyLaunchedEffect{ }
-                        MyDerivatedStateOf()
+                        //MyDerivatedStateOf()
+                         //   MyBasicList()
+                        MyAdvanceList()
                         }
                     }
                 }
