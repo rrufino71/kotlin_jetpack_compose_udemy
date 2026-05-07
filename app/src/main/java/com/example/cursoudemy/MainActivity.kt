@@ -31,10 +31,12 @@ import com.example.cursoudemy.components.MyBasicList
 import com.example.cursoudemy.components.MyCustomDialog
 import com.example.cursoudemy.components.MyDialogs
 import com.example.cursoudemy.components.MyDateDialogs
+import com.example.cursoudemy.components.MyGridList
 import com.example.cursoudemy.components.MyModalDrawer
 import com.example.cursoudemy.components.MyNavigationBar
 import com.example.cursoudemy.components.MyTimePicker
 import com.example.cursoudemy.components.MyTopAppBar
+import com.example.cursoudemy.components.ScrollList
 import com.example.cursoudemy.components.advance.InteractionSourceExample
 import com.example.cursoudemy.components.advance.MyDerivatedStateOf
 import com.example.cursoudemy.components.advance.MyLaunchedEffect
@@ -106,8 +108,7 @@ class MainActivity : ComponentActivity() {
                         //InteractionSourceExample()
                         //MyLaunchedEffect{ }
                         //MyDerivatedStateOf()
-                         //   MyBasicList()
-                        MyAdvanceList()
+                        MyGridList()
                         }
                     }
                 }
