@@ -43,6 +43,7 @@ import com.example.cursoudemy.components.advance.MyLaunchedEffect
 import com.example.cursoudemy.components.layout.MyAdvanceTextField
 import com.example.cursoudemy.components.layout.MyFAB
 import com.example.cursoudemy.components.model.PokemonCombat
+import com.example.cursoudemy.components.navigation.NavigationWrapper
 import com.example.cursoudemy.ui.theme.CursoUdemyTheme
 import kotlinx.coroutines.launch
 
@@ -70,24 +71,24 @@ class MainActivity : ComponentActivity() {
                     },
                     onDismissDialog = {showDialog=false}
                 )
+                NavigationWrapper()
 
-
-                MyModalDrawer(drawerState) {
-                    Scaffold(modifier = Modifier.fillMaxSize(),
-                        topBar = { MyTopAppBar {scope.launch {drawerState.open() } } },
-                        snackbarHost = { SnackbarHost(hostState = snackbarHotState) },
-                        floatingActionButton = { MyFAB{showDialog = true} },
-                        floatingActionButtonPosition = FabPosition.Center,
-                        bottomBar = { MyNavigationBar() }
-
-                    ) { innerPadding ->
-                        Box(
-                            modifier=Modifier.fillMaxSize()
-                                .background(Color.Cyan)
-                                .padding(innerPadding),
-                                contentAlignment = Alignment.Center
-                        )
-                        {
+//                MyModalDrawer(drawerState) {
+//                    Scaffold(modifier = Modifier.fillMaxSize(),
+//                        topBar = { MyTopAppBar {scope.launch {drawerState.open() } } },
+//                        snackbarHost = { SnackbarHost(hostState = snackbarHotState) },
+//                        floatingActionButton = { MyFAB{showDialog = true} },
+//                        floatingActionButtonPosition = FabPosition.Center,
+//                        bottomBar = { MyNavigationBar() }
+//
+//                    ) { innerPadding ->
+//                        Box(
+//                            modifier=Modifier.fillMaxSize()
+//                                .background(Color.Cyan)
+//                                .padding(innerPadding),
+//                                contentAlignment = Alignment.Center
+//                        )
+//                        {
  //                           MyDivider()
 /*
                             Text("Esta es mi screen", modifier = Modifier.clickable{
@@ -108,14 +109,15 @@ class MainActivity : ComponentActivity() {
                         //InteractionSourceExample()
                         //MyLaunchedEffect{ }
                         //MyDerivatedStateOf()
-                        MyGridList()
+                        //MyGridList()
+
                         }
                     }
                 }
             }
-        }
-    }
-}
+//        }
+//    }
+//}
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
