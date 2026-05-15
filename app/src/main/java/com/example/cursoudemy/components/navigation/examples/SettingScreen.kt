@@ -10,19 +10,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.cursoudemy.components.navigation.examples.model.SettingModel
 
 @Composable
-fun LoginScreen(navigateToDetail: () -> Unit) {
+fun SettingScreen(settingModel: SettingModel) {
     Column(Modifier.fillMaxSize().background(Color.Cyan), horizontalAlignment = Alignment.CenterHorizontally) {
         Spacer(Modifier.weight(1f))
-        Text("Login", fontSize = 30.sp)
+        Text("Setting: id:${settingModel.id}, darkMode: ${settingModel.darkMode}", fontSize = 30.sp)
         Spacer(Modifier.weight(1f))
-        Button(onClick = {navigateToDetail()}) {
-            Text("Navegar")
+        Button(onClick = {}) {
+            Text("Volver al Inicio")
         }
         Spacer(Modifier.weight(1f))
 
     }
+
 }

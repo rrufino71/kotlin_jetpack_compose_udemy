@@ -19,6 +19,7 @@ uiGraphics = "1.10.6"
 foundationVersion = "1.11.0"
 navigationCompose="2.9.0"
 kotlinSerialization="1.8.1"
+kotlinParcelize="2.3.21"
 
 [libraries]
 androidx-compose-material-icons-core = { module = "androidx.compose.material:material-icons-core" }
@@ -55,4 +56,5 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 jetbrainsKotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin"}
+kotlin-parcelize= {id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlinParcelize" }
 
