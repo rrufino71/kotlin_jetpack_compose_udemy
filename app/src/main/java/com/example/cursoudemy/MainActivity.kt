@@ -40,6 +40,7 @@ import com.example.cursoudemy.components.ScrollList
 import com.example.cursoudemy.components.advance.InteractionSourceExample
 import com.example.cursoudemy.components.advance.MyDerivatedStateOf
 import com.example.cursoudemy.components.advance.MyLaunchedEffect
+import com.example.cursoudemy.components.animations.MyAnimatedVisibility
 import com.example.cursoudemy.components.layout.MyAdvanceTextField
 import com.example.cursoudemy.components.layout.MyFAB
 import com.example.cursoudemy.components.model.PokemonCombat
@@ -53,7 +54,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             CursoUdemyTheme {
-                val drawerState: DrawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+                val drawerState: DrawerState =
+                    rememberDrawerState(initialValue = DrawerValue.Closed)
                 val snackbarHotState = remember { SnackbarHostState() }
                 val scope = rememberCoroutineScope()
                 var showDialog by remember { mutableStateOf(false) }
@@ -67,12 +69,12 @@ class MainActivity : ComponentActivity() {
                     pokemonCombat = pokemonCombat,
                     onStartCombat = {
                         //iniciar el combate
-                        showDialog=false
+                        showDialog = false
                     },
-                    onDismissDialog = {showDialog=false}
+                    onDismissDialog = { showDialog = false }
                 )
-                NavigationWrapper()
-
+                MyAnimatedVisibility()
+                //                NavigationWrapper()
 //                MyModalDrawer(drawerState) {
 //                    Scaffold(modifier = Modifier.fillMaxSize(),
 //                        topBar = { MyTopAppBar {scope.launch {drawerState.open() } } },
@@ -89,32 +91,32 @@ class MainActivity : ComponentActivity() {
 //                                contentAlignment = Alignment.Center
 //                        )
 //                        {
- //                           MyDivider()
-/*
-                            Text("Esta es mi screen", modifier = Modifier.clickable{
-                                scope.launch {
-                                    val result = snackbarHotState.showSnackbar(
-                                        message= "Ejemplo asnackbar",
-                                        actionLabel = "Deshacer"
-                                    )
-                                    if (result==SnackbarResult.ActionPerformed) {
-                                        //pulso deshacer
-                                    }else{
-                                        //se fue solo
-                                    }
+                //                           MyDivider()
+                /*
+                                            Text("Esta es mi screen", modifier = Modifier.clickable{
+                                                scope.launch {
+                                                    val result = snackbarHotState.showSnackbar(
+                                                        message= "Ejemplo asnackbar",
+                                                        actionLabel = "Deshacer"
+                                                    )
+                                                    if (result==SnackbarResult.ActionPerformed) {
+                                                        //pulso deshacer
+                                                    }else{
+                                                        //se fue solo
+                                                    }
 
-                                }
-                            })
-*/
-                        //InteractionSourceExample()
-                        //MyLaunchedEffect{ }
-                        //MyDerivatedStateOf()
-                        //MyGridList()
+                                                }
+                                            })
+                */
+                //InteractionSourceExample()
+                //MyLaunchedEffect{ }
+                //MyDerivatedStateOf()
+                //MyGridList()
 
-                        }
-                    }
-                }
             }
+        }
+    }
+}
 //        }
 //    }
 //}
