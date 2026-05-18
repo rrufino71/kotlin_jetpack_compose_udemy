@@ -14,12 +14,12 @@ import androidx.compose.ui.unit.sp
 import com.example.cursoudemy.components.navigation.examples.model.SettingModel
 
 @Composable
-fun SettingScreen(settingModel: SettingModel) {
+fun SettingScreen(settingModel: SettingModel,navigateToHome: ()-> Unit ) {
     Column(Modifier.fillMaxSize().background(Color.Cyan), horizontalAlignment = Alignment.CenterHorizontally) {
         Spacer(Modifier.weight(1f))
         Text("Setting: id:${settingModel.id}, darkMode: ${settingModel.darkMode}", fontSize = 30.sp)
         Spacer(Modifier.weight(1f))
-        Button(onClick = {}) {
+        Button(onClick = {navigateToHome()}) {
             Text("Volver al Inicio")
         }
         Spacer(Modifier.weight(1f))

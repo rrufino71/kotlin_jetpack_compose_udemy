@@ -11,6 +11,7 @@ import com.example.cursoudemy.components.navigation.examples.HomeScreen
 import com.example.cursoudemy.components.navigation.examples.LoginScreen
 import com.example.cursoudemy.components.navigation.examples.SettingScreen
 import com.example.cursoudemy.components.navigation.examples.model.SettingModel
+import com.example.cursoudemy.components.navigation.types.createNavType
 import com.example.cursoudemy.components.navigation.types.settingsModelType
 import kotlin.reflect.typeOf
 
@@ -36,10 +37,20 @@ fun  NavigationWrapper() {
            DetailScreen(id=detail.id, navigateToSettings = {navController.navigate(Settings(it))})
        }
 
-       composable<Settings>(typeMap = mapOf(typeOf<SettingModel>() to settingsModelType)) {
+       //composable<Settings>(typeMap = mapOf(typeOf<SettingModel>() to settingsModelType)) {
+        composable<Settings>(typeMap = mapOf(typeOf<SettingModel>() to createNavType<SettingModel>())) {
            navBackStackEntry ->
            val setting:Settings = navBackStackEntry.toRoute<Settings>()
-           SettingScreen(setting.settingModel)
+           SettingScreen(settingModel = setting.settingModel, navigateToHome = {
+                navController.navigate(Login) {
+                    //esto lo que hace saca todas las pantallas desde
+                    //login hasta donde estoy para que no queden en el stack
+                    //si inclusive = true borra login y la arma denuevo
+                    //no me hace ver la antigua login porque la elimina
+                    //del lo contrario tendria dos login en el stack
+                    popUpTo<Login>{inclusive = true}
+                }
+           })
        }
 
     }
